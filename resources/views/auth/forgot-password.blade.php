@@ -5,7 +5,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 
         @if (session('status'))
@@ -16,7 +16,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="/forgot-password">
+        <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
             <div class="block">
@@ -26,7 +26,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button>
-                    Email Password Reset Link
+                    {{ __('Email Password Reset Link') }}
                 </x-jet-button>
             </div>
         </form>
